@@ -5,8 +5,8 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lele85/karma-electron-launcher.git"
-  }
+    "url": "git://github.com/lele85/karma-electron-launcher.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,11 +16,17 @@
     "electron",
     "atom shell"
   ],
-  "author": "Emanuele Rampichini",
+  "author": {
+    "name": "Emanuele Rampichini",
+    "email": "emanuele.rampichini@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "async": "^0.9.0",
     "merge": "^1.2.0",
     "ncp": "^2.0.0"
+  },
+  "peerDependencies": {
+    "karma": ">=0.9"
   }
 }
