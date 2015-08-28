@@ -3,6 +3,7 @@ var path = require('path');
 var ncp = require('ncp').ncp;
 var async = require('async');
 var merge = require('merge');
+var electronPath = require ('electron-prebuilt');
 
 var ElectronBrowser = function(baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
@@ -51,7 +52,9 @@ ElectronBrowser.prototype = {
   name: 'electron',
 
   DEFAULT_CMD: {
-    darwin: "electron"
+    darwin: electronPath,
+    linux: electronPath,
+    win32: electronPath
   },
 
   ENV_CMD: 'ELECTRON_BIN'
