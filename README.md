@@ -16,7 +16,7 @@ The easiest way is to keep `karma-electron-launcher` as a devDependency in your 
     {
       "devDependencies": {
         "karma": "~0.10",
-        "karma-electron-launcher": "~0.0.2"
+        "karma-electron-launcher": "~0.0.3"
       }
     }
 
