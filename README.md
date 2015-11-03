@@ -1,6 +1,6 @@
 # karma-electron-launcher
 
-> Launcher for electron. 
+> Launcher for electron.
 
 ---
 
@@ -42,9 +42,3 @@ You can pass list of browsers as a CLI argument too:
 ## Locally-installed Node modules
 
 If you're using locally-installed Node modules via `require` in your code in the `node_modules` directory, you should be able to just `require` them, and they should be found by the testing environment.
-    
-## Global dependencies
-
-The launcher depens on the presence of electron in your executable PATH so before using it install electron globally:
-
-	npm install -g electron
