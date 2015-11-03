@@ -23,6 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "async": "^0.9.0",
+    "electron-prebuilt": "^0.31.1",
     "merge": "^1.2.0",
     "ncp": "^2.0.0"
   },
