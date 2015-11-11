@@ -42,3 +42,21 @@ You can pass list of browsers as a CLI argument too:
 ## Locally-installed Node modules
 
 If you're using locally-installed Node modules via `require` in your code in the `node_modules` directory, you should be able to just `require` them, and they should be found by the testing environment.
+
+## Configuring the Electron BrowserWindow
+
+Options passed to the `new BrowserWindow()` constructor can be defined by adding an `electronOpts` object to your karma config. Eg.
+
+    // karma.conf.js
+    module.exports = function(config) {
+      config.set({
+        browsers: ['Electron'],
+        electronOpts: {
+          title: 'my window title',
+          // ...
+        }
+      });
+    };
+
+Available options are specified 
+[in the Electron docs](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions). By default, only the window dimensions (400x300) are set.
