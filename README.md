@@ -4,7 +4,7 @@
 
 ---
 
-Small and experimental launcher based on [Karma Nodewebkit Launcher](https://raw.githubusercontent.com/intelligentgolf/karma-nodewebkit-launcher). Is not official nor super tested and it follows the "it works for me"(tm) philosophy.
+Small and experimental launcher based on [Karma Nodewebkit Launcher](https://github.com/intelligentgolf/karma-nodewebkit-launcher). Is not official nor super tested and it follows the "it works for me"(tm) philosophy.
 
 ---
 
