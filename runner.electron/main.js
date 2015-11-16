@@ -6,7 +6,7 @@ require('crash-reporter').start();
 var mainWindow = null;
 var opts = %OPTS%;
 
-if (process.platform === 'darwin' && opts.show === false){
+if (process.platform === 'darwin' && opts.skipTaskbar === true){
 	app.dock.hide();
 }
 
