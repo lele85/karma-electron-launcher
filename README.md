@@ -42,3 +42,9 @@ You can pass list of browsers as a CLI argument too:
 ## Locally-installed Node modules
 
 If you're using locally-installed Node modules via `require` in your code in the `node_modules` directory, you should be able to just `require` them, and they should be found by the testing environment.
+
+## Application seeds
+
+If you are looking for an application seed to start from you can check this one out:
+
+  [Karma Electron Launcher Simple Seed](https://github.com/lele85/karma-electron-launcher-simple-seed)
