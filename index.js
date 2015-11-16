@@ -5,10 +5,16 @@ var async = require('async');
 var merge = require('merge');
 var electronPath = require ('electron-prebuilt');
 
-var ElectronBrowser = function(baseBrowserDecorator, args) {
+var defaultElectron = {
+  width  : 400,
+  height : 300,
+};
+
+var ElectronBrowser = function(baseBrowserDecorator, args, electronOpts) {
   baseBrowserDecorator(this);
 
   var customOptions = args.options || {};
+  var browserOptions = merge(true, defaultElectron, electronOpts || {});
   var searchPaths = (args.paths || ['node_modules']).map(function(searchPath) {
     return path.join(process.cwd(), searchPath);
   });
@@ -26,10 +32,12 @@ var ElectronBrowser = function(baseBrowserDecorator, args) {
         ncp(SOURCE_PATH, STATIC_PATH, callback);
       },
       'main.js:read' : ['directory', function(callback){
-         fs.readFile(MAIN_JS, callback);
+        fs.readFile(MAIN_JS, callback);
       }],
       'main.js:write' : ['main.js:read', function  (callback, results) {
-        var content = results['main.js:read'].toString().replace('%URL%', url);
+        var content = results['main.js:read'].toString()
+                                             .replace('%URL%', url)
+                                             .replace('%OPTS%', JSON.stringify(browserOptions));
         fs.writeFile(MAIN_JS, content, callback);
       }],
       'package.json:read': ['directory', function(callback) {
@@ -60,7 +68,7 @@ ElectronBrowser.prototype = {
   ENV_CMD: 'ELECTRON_BIN'
 };
 
-ElectronBrowser.$inject = ['baseBrowserDecorator', 'args'];
+ElectronBrowser.$inject = ['baseBrowserDecorator', 'args', 'config.electronOpts'];
 
 // PUBLISH DI MODULE
 module.exports = {
