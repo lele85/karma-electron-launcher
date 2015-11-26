@@ -4,7 +4,7 @@
 
 ---
 
-Small and experimental launcher based on [Karma Nodewebkit Launcher](https://github.com/intelligentgolf/karma-nodewebkit-launcher). Is not official nor super tested and it follows the "it works for me"(tm) philosophy.
+Karma launcher for GitHub Electron inspired by [Karma Nodewebkit Launcher](https://github.com/intelligentgolf/karma-nodewebkit-launcher).
 
 ---
 
@@ -16,7 +16,7 @@ The easiest way is to keep `karma-electron-launcher` as a devDependency in your 
     {
       "devDependencies": {
         "karma": "~0.10",
-        "karma-electron-launcher": "~0.0.3"
+        "karma-electron-launcher": "~0.0.5"
       }
     }
 
