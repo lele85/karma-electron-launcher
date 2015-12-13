@@ -27,7 +27,7 @@
     "ncp": "^2.0.0"
   },
   "peerDependencies": {
-    "electron-prebuilt": "*",
+    "electron-prebuilt": ">=0.35.0",
     "karma": ">=0.9"
   }
 }
