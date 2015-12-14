@@ -1,7 +1,5 @@
-var app = require('app');
-var BrowserWindow = require('browser-window');
-
-require('crash-reporter').start();
+var app = require('electron').app;
+var BrowserWindow = require('electron').BrowserWindow;
 
 var mainWindow = null;
 var opts = %OPTS%;
@@ -18,7 +16,7 @@ app.on('window-all-closed', function(){
 
 app.on('ready', function () {
 	mainWindow = new BrowserWindow(opts);
-	mainWindow.loadUrl('%URL%');
+	mainWindow.loadURL('%URL%');
 	mainWindow.on('closed', function () {
 		mainWindow = null;
 	});

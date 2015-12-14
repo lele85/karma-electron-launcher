@@ -12,11 +12,12 @@ Karma launcher for GitHub Electron inspired by [Karma Nodewebkit Launcher](https
 
 The easiest way is to keep `karma-electron-launcher` as a devDependency in your `package.json`.
 
+For `electron<=0.34.3`, use `karma-electron-launcher@~0.0.5`.
 
     {
       "devDependencies": {
         "karma": "~0.10",
-        "karma-electron-launcher": "~0.0.5"
+        "karma-electron-launcher": "~0.1.0"
       }
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "karma-electron-launcher",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A Karma Plugin. Launcher for github electron shell.",
   "main": "index.js",
   "repository": {
@@ -27,7 +27,7 @@
     "ncp": "^2.0.0"
   },
   "peerDependencies": {
-    "electron-prebuilt": "*",
+    "electron-prebuilt": ">=0.35.0",
     "karma": ">=0.9"
   }
 }
