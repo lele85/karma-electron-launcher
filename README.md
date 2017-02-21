@@ -18,7 +18,7 @@ For `electron<=0.34.3`, use `karma-electron-launcher@~0.0.5`.
 {
   "devDependencies": {
     "karma": "~0.10",
-    "karma-electron-launcher": "~0.1.0"
+    "karma-electron-launcher": "~0.2.0"
   }
 }
 ```
@@ -28,7 +28,7 @@ You can do it on the command line by:
     npm install karma-electron-launcher --save-dev
 
 ## Configuration
-    
+
 ```javascript
 // karma.conf.js
 module.exports = function(config) {
