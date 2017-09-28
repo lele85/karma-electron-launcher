@@ -72,3 +72,27 @@ Available options are specified
 
 If you are looking for an application seed to start from you can check this one out:
 [Karma Electron Launcher Simple Seed](https://github.com/lele85/karma-electron-launcher-simple-seed)
+
+## Pass command line switches through to Chromium
+
+If you need to pass command line switches through to Chromium then you can use the `commandLineSwitches` property of `options`.
+
+```javascript
+// karma.conf.js
+module.exports = function(config) {
+  config.set({
+    browsers: ['ElectronFakeDevices'],
+    customLaunchers: {
+      ElectronFakeDevices: {
+        base: 'Electron',
+        options: {
+          commandLineSwitches: [
+            '--use-fake-ui-for-media-stream',
+            '--use-fake-device-for-media-stream',
+          ],
+        },
+      },
+    },
+  });
+};
+```

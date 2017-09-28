@@ -1,8 +1,15 @@
 var app = require('electron').app;
 var BrowserWindow = require('electron').BrowserWindow;
+var pkg = require('./package.json');
 
 var mainWindow = null;
 var opts = %OPTS%;
+
+if (pkg && Array.isArray(pkg.commandLineSwitches)) {
+	pkg.commandLineSwitches.forEach(function(cliSwitch) {
+		app.commandLine.appendSwitch(cliSwitch);
+	});
+}
 
 if (process.platform === 'darwin' && opts.skipTaskbar === true){
 	app.dock.hide();
