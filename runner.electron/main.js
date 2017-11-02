@@ -1,12 +1,11 @@
 var app = require('electron').app;
 var BrowserWindow = require('electron').BrowserWindow;
-var pkg = require('./package.json');
 
 var mainWindow = null;
 var opts = %OPTS%;
 
-if (pkg && Array.isArray(pkg.commandLineSwitches)) {
-	pkg.commandLineSwitches.forEach(function(cliSwitch) {
+if (opts && Array.isArray(opts.commandLineSwitches)) {
+	opts.commandLineSwitches.forEach(function(cliSwitch) {
 		app.commandLine.appendSwitch(cliSwitch);
 	});
 }

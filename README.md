@@ -75,24 +75,48 @@ If you are looking for an application seed to start from you can check this one 
 
 ## Pass command line switches through to Chromium
 
-If you need to pass command line switches through to Chromium then you can use the `commandLineSwitches` property of `options`.
+If you need to pass command line switches through to Chromium then you can use the `commandLineSwitches` property of `electronOpts`.
 
 ```javascript
 // karma.conf.js
 module.exports = function(config) {
   config.set({
-    browsers: ['ElectronFakeDevices'],
+    browsers: ['Electron'],
+    electronOpts: {
+      commandLineSwitches: [
+        '--use-fake-ui-for-media-stream',
+        '--use-fake-device-for-media-stream',
+      ],
+    },
+  });
+};
+```
+
+## Configuring custom launchers
+
+If you need to configure custom launchers differently to each other, then define `electronOpts` within the custom launcher config. This will be merged with `electronOpts` in the parent config object and override any properties already set.
+
+```javascript
+// karma.conf.js
+module.exports = function(config) {
+  config.set({
+    browsers: ['Electron', 'MyFirstLauncher', 'MySecondLauncher'],
+    electronOpts: {
+      title: 'default title',
+    },
     customLaunchers: {
-      ElectronFakeDevices: {
+      MyFirstLauncher: {
         base: 'Electron',
-        options: {
-          commandLineSwitches: [
-            '--use-fake-ui-for-media-stream',
-            '--use-fake-device-for-media-stream',
-          ],
+      },
+      MySecondLauncher: {
+        base: 'Electron',
+        electronOpts: {
+          title: 'my custom title',
         },
       },
     },
   });
 };
 ```
+
+In this example the `Electron` and `MyFirstLauncher` launchers will have the title `default title` whereas `MySecondLauncher` will have the title `my custom title`.
