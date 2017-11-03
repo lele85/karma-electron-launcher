@@ -4,7 +4,7 @@ var BrowserWindow = require('electron').BrowserWindow;
 var mainWindow = null;
 var opts = %OPTS%;
 
-if (opts && Array.isArray(opts.commandLineSwitches)) {
+if (Array.isArray(opts.commandLineSwitches)) {
 	opts.commandLineSwitches.forEach(function(cliSwitch) {
 		var args = cliSwitch;
 		if (!Array.isArray(args)) {
