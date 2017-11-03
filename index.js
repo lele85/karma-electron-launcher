@@ -14,7 +14,7 @@ var ElectronBrowser = function(baseBrowserDecorator, args, electronOpts) {
   baseBrowserDecorator(this);
 
   var customOptions = args.options || {};
-  var browserOptions = merge(true, defaultElectron, electronOpts || {});
+  var browserOptions = merge(true, defaultElectron, electronOpts || {}, args.electronOpts || {});
   var searchPaths = (args.paths || ['node_modules']).map(function(searchPath) {
     return path.join(process.cwd(), searchPath);
   });
