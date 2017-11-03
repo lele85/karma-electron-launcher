@@ -75,7 +75,27 @@ If you are looking for an application seed to start from you can check this one 
 
 ## Pass command line switches through to Chromium
 
-If you need to pass command line switches through to Chromium then you can use the `commandLineSwitches` property of `electronOpts`.
+If you need to pass command line switches through to Chromium then you can use the `commandLineSwitches` property of `electronOpts`. Define your switch as an array if it also accepts arguments. Supported switches are listed [in the Electron docs](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+
+```javascript
+// karma.conf.js
+module.exports = function(config) {
+  config.set({
+    browsers: ['Electron'],
+    electronOpts: {
+      commandLineSwitches: [
+        'disable-http-cache',
+        'disable-http2',
+        ['remote-debugging-port', '8315'],
+        ['host-rules', 'MAP * 127.0.0.1'],
+        ['js-flags', '--harmony_proxies --harmony_collections'],
+      ],
+    },
+  });
+};
+```
+
+Switches that are supported by Chromium but not specified in the Electron docs currently work too but this is an undocumented feature and may unexpectedly break:
 
 ```javascript
 // karma.conf.js

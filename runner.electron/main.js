@@ -6,7 +6,11 @@ var opts = %OPTS%;
 
 if (opts && Array.isArray(opts.commandLineSwitches)) {
 	opts.commandLineSwitches.forEach(function(cliSwitch) {
-		app.commandLine.appendSwitch(cliSwitch);
+		var args = cliSwitch;
+		if (!Array.isArray(args)) {
+			args = [args];
+		}
+		app.commandLine.appendSwitch.apply(app.commandLine.appendSwitch, args);
 	});
 }
 
