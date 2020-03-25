@@ -14,6 +14,7 @@ var ElectronBrowser = function(baseBrowserDecorator, args, electronOpts) {
   baseBrowserDecorator(this);
 
   var customOptions = args.options || {};
+  var customFlags = args.flags || [];
   var browserOptions = merge(true, defaultElectron, electronOpts || {}, args.electronOpts || {});
   var searchPaths = (args.paths || ['node_modules']).map(function(searchPath) {
     return path.join(process.cwd(), searchPath);
@@ -50,7 +51,7 @@ var ElectronBrowser = function(baseBrowserDecorator, args, electronOpts) {
       }],
       'exec': ['main.js:write', 'package.json:write', function(callback) {
         process.env.NODE_PATH = searchPaths.join(path.delimiter);
-        self._execCommand(self._getCommand(), [STATIC_PATH]);
+        self._execCommand(self._getCommand(), customFlags.concat(STATIC_PATH));
       }]
     });
   };

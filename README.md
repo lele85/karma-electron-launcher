@@ -114,7 +114,7 @@ module.exports = function(config) {
 
 ## Configuring custom launchers
 
-If you need to configure custom launchers differently to each other, then define `electronOpts` within the custom launcher config. This will be merged with `electronOpts` in the parent config object and override any properties already set.
+If you need to configure custom launchers differently to each other, then define `electronOpts` within the custom launcher config. This will be merged with `electronOpts` in the parent config object and override any properties already set. Custom launchers also allow you to provide additional flags to the electron executable.
 
 ```javascript
 // karma.conf.js
@@ -133,6 +133,7 @@ module.exports = function(config) {
         electronOpts: {
           title: 'my custom title',
         },
+        flags: ['--no-sandbox'],
       },
     },
   });
