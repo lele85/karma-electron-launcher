@@ -18,7 +18,7 @@ For `electron<=0.34.3`, use `karma-electron-launcher@~0.0.5`.
 {
   "devDependencies": {
     "karma": "~0.10",
-    "karma-electron-launcher": "~0.2.0"
+    "karma-electron-launcher": "~0.3.0"
   }
 }
 ```
