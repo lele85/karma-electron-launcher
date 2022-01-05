@@ -1,5 +1,11 @@
-var app = require('electron').app;
-var BrowserWindow = require('electron').BrowserWindow;
+const electron = require('electron');
+var app = electron.app;
+var BrowserWindow = electron.BrowserWindow;
+
+electron.ipcMain.handle(
+  'DESKTOP_CAPTURER_GET_SOURCES',
+  (event, opts) => electron.desktopCapturer.getSources(opts)
+);
 
 var mainWindow = null;
 var opts = %OPTS%;
