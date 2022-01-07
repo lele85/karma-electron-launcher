@@ -2,7 +2,7 @@ const electron = require('electron');
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
 
-if (electron.ipcMain.handle) {
+if (electron.ipcMain && electron.ipcMain.handle) {
   electron.ipcMain.handle(
 	'DESKTOP_CAPTURER_GET_SOURCES',
 	(event, opts) => electron.desktopCapturer.getSources(opts)
