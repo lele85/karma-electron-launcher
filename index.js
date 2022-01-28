@@ -3,7 +3,7 @@ var path = require('path');
 var ncp = require('ncp').ncp;
 var async = require('async');
 var merge = require('merge');
-var electronPath = require ('electron');
+var electronPath = require ('electron-nightly');
 
 var defaultElectron = {
   width  : 400,
